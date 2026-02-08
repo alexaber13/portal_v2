@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": "🎓 Digital Diary fr fr",
+    "groupLabel": "Squad:",
+    "groupDefault": "-"
+  },
+  "nav": {
+    "schedule": "📅 The Timetable",
+    "grades": "📊 Vibes Check",
+    "teachers": "👨‍🏫 The Profs"
+  },
+  "schedule": {
+    "weekOdd": "Week A (hits different)",
+    "weekEven": "Week B (same same)",
+    "pairsCount": "Classes:",
+    "days": {
+      "monday": "Monday (pain)",
+      "tuesday": "Tuesday (mid)",
+      "wednesday": "Hump Day",
+      "thursday": "Almost Friday",
+      "friday": "Friday (bussin)",
+      "saturday": "Chill Day"
+    }
+  },
+  "grades": {
+    "title": "How We Doing",
+    "semester1": "First Half (oof)",
+    "semester2": "Second Half (comeback szn)"
+  },
+  "teachers": {
+    "title": "The Profs"
+  },
+  "footer": {
+    "copyright": "© 2026 Portal v2 | Last Updated:"
+  }
+}
