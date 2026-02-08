@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": "🎓 電子手帳",
+    "groupLabel": "グループ:",
+    "groupDefault": "-"
+  },
+  "nav": {
+    "schedule": "📅 スケジュール",
+    "grades": "📊 成績",
+    "teachers": "👨‍🏫 教師"
+  },
+  "schedule": {
+    "weekOdd": "奇数週",
+    "weekEven": "偶数週",
+    "pairsCount": "クラス:",
+    "days": {
+      "monday": "月曜日",
+      "tuesday": "火曜日",
+      "wednesday": "水曜日",
+      "thursday": "木曜日",
+      "friday": "金曜日",
+      "saturday": "土曜日"
+    }
+  },
+  "grades": {
+    "title": "学業成績",
+    "semester1": "1学期",
+    "semester2": "2学期"
+  },
+  "teachers": {
+    "title": "教師"
+  },
+  "footer": {
+    "copyright": "© 2026 Portal v2 | 更新:"
+  }
+}
