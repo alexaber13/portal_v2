@@ -67,63 +67,110 @@ async function loadDaysMap() {
 function updateUI() {
     if (!translations.header) return;
     
+    // Обновление заголовка страницы
+    const pageTitle = document.getElementById('page-title');
+    if (pageTitle) pageTitle.textContent = translations.header.title;
+    
     // Обновление заголовка
-    document.querySelector('h1').textContent = translations.header.title;
+    const headerTitle = document.getElementById('header-title');
+    if (headerTitle) headerTitle.textContent = translations.header.title;
+    
+    // Обновление группы
+    const groupName = document.getElementById('group-name');
+    if (groupName) {
+        const groupLabel = translations.header.groupLabel || 'Группа:';
+        const groupDefault = translations.header.groupDefault || '-';
+        const groupValue = scheduleData.schedule?.groupName || groupDefault;
+        groupName.textContent = `${groupLabel} ${groupValue}`;
+    }
     
     // Обновление навигации
-    document.querySelectorAll('.nav-button').forEach((btn, index) => {
-        const keys = ['schedule', 'grades', 'teachers'];
-        if (translations.nav && translations.nav[keys[index]]) {
-            btn.textContent = translations.nav[keys[index]];
-        }
-    });
+    const navSchedule = document.getElementById('nav-schedule');
+    if (navSchedule) navSchedule.textContent = translations.nav.schedule;
+    
+    const navGrades = document.getElementById('nav-grades');
+    if (navGrades) navGrades.textContent = translations.nav.grades;
+    
+    const navTeachers = document.getElementById('nav-teachers');
+    if (navTeachers) navTeachers.textContent = translations.nav.teachers;
     
     // Обновление недель
     if (translations.schedule) {
-        document.getElementById('odd-week-btn').textContent = translations.schedule.weekOdd;
-        document.getElementById('even-week-btn').textContent = translations.schedule.weekEven;
+        const oddWeekBtn = document.getElementById('odd-week-btn');
+        if (oddWeekBtn) oddWeekBtn.textContent = translations.schedule.weekOdd;
+        
+        const evenWeekBtn = document.getElementById('even-week-btn');
+        if (evenWeekBtn) evenWeekBtn.textContent = translations.schedule.weekEven;
+        
+        const pairsLabel = document.getElementById('pairs-label');
+        if (pairsLabel) pairsLabel.textContent = translations.schedule.pairsCount;
     }
+    
+    // Обновление заголовков разделов
+    const gradesTitle = document.getElementById('grades-title');
+    if (gradesTitle && translations.grades) gradesTitle.textContent = translations.grades.title;
+    
+    const teachersTitle = document.getElementById('teachers-title');
+    if (teachersTitle && translations.teachers) teachersTitle.textContent = translations.teachers.title;
+    
+    // Обновление кнопок семестров
+    const semester1Btn = document.getElementById('semester-1-btn');
+    if (semester1Btn && translations.grades) semester1Btn.textContent = translations.grades.semester1;
+    
+    const semester2Btn = document.getElementById('semester-2-btn');
+    if (semester2Btn && translations.grades) semester2Btn.textContent = translations.grades.semester2;
     
     // Обновление футера
     if (translations.footer) {
-        document.querySelector('footer p').innerHTML = translations.footer.copyright;
+        const footerCopyright = document.getElementById('footer-copyright');
+        if (footerCopyright) footerCopyright.innerHTML = translations.footer.copyright;
     }
 }
 
 // Настройка обработчиков событий
 function setupEventListeners() {
     // Навигация
-    document.querySelectorAll('.nav-button').forEach(btn => {
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => {
         btn.addEventListener('click', handleNavigation);
     });
     
     // Переключатель недель
-    document.getElementById('odd-week-btn').addEventListener('click', () => switchWeek('odd'));
-    document.getElementById('even-week-btn').addEventListener('click', () => switchWeek('even'));
+    const oddWeekBtn = document.getElementById('odd-week-btn');
+    if (oddWeekBtn) oddWeekBtn.addEventListener('click', () => switchWeek('odd'));
+    
+    const evenWeekBtn = document.getElementById('even-week-btn');
+    if (evenWeekBtn) evenWeekBtn.addEventListener('click', () => switchWeek('even'));
     
     // Навигация по дням
-    document.getElementById('prev-day').addEventListener('click', () => changeDay(-1));
-    document.getElementById('next-day').addEventListener('click', () => changeDay(1));
+    const prevDayBtn = document.getElementById('prev-day');
+    if (prevDayBtn) prevDayBtn.addEventListener('click', () => changeDay(-1));
+    
+    const nextDayBtn = document.getElementById('next-day');
+    if (nextDayBtn) nextDayBtn.addEventListener('click', () => changeDay(1));
 }
 
 // Обработка навигации
 function handleNavigation(event) {
-    const section = event.target.textContent;
-    document.querySelectorAll('.nav-button').forEach(btn => btn.classList.remove('active'));
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
     
-    // Показать соответствующий раздел
+    const section = event.target.getAttribute('data-section');
+    
+    // Скрыть все разделы
     document.getElementById('schedule-section').style.display = 'none';
     document.getElementById('grades-section').style.display = 'none';
     document.getElementById('teachers-section').style.display = 'none';
     
-    if (event.target.textContent.includes('📅') || event.target.textContent.toLowerCase().includes('schedule')) {
+    // Показать соответствующий раздел
+    if (section === 'schedule') {
         document.getElementById('schedule-section').style.display = 'block';
         displaySchedule();
-    } else if (event.target.textContent.includes('📊') || event.target.textContent.toLowerCase().includes('grades')) {
+    } else if (section === 'grades') {
         document.getElementById('grades-section').style.display = 'block';
         displayGrades();
-    } else if (event.target.textContent.includes('👨‍🏫') || event.target.textContent.toLowerCase().includes('teachers')) {
+    } else if (section === 'teachers') {
         document.getElementById('teachers-section').style.display = 'block';
         displayTeachers();
     }
@@ -132,8 +179,10 @@ function handleNavigation(event) {
 // Переключение недели
 function switchWeek(week) {
     currentWeek = week;
-    document.getElementById('odd-week-btn').classList.toggle('active', week === 'odd');
-    document.getElementById('even-week-btn').classList.toggle('active', week === 'even');
+    const oddWeekBtn = document.getElementById('odd-week-btn');
+    const evenWeekBtn = document.getElementById('even-week-btn');
+    if (oddWeekBtn) oddWeekBtn.classList.toggle('active', week === 'odd');
+    if (evenWeekBtn) evenWeekBtn.classList.toggle('active', week === 'even');
     displaySchedule();
 }
 
@@ -148,23 +197,32 @@ function displaySchedule() {
     if (!scheduleData.schedule || !scheduleData.schedule.days) return;
     
     const dayNames = Object.keys(daysMap);
+    if (dayNames.length === 0) return;
+    
     const currentDayKey = dayNames[currentDayIndex];
     const dayData = scheduleData.schedule.days[currentDayKey];
     
     // Обновить название дня
-    document.getElementById('current-day-name').textContent = daysMap[currentDayKey] || currentDayKey;
+    const dayNameElement = document.getElementById('current-day-name');
+    if (dayNameElement) {
+        const translatedDayName = translations.schedule?.days?.[currentDayKey] || daysMap[currentDayKey] || currentDayKey;
+        dayNameElement.textContent = translatedDayName;
+    }
     
     // Обновить контейнер занятий
     const container = document.getElementById('lessons-container');
+    if (!container) return;
     container.innerHTML = '';
     
     if (!dayData || !dayData.pairs) {
-        document.getElementById('pair-count').textContent = '0';
+        const pairCountElement = document.getElementById('pair-count');
+        if (pairCountElement) pairCountElement.textContent = '0';
         return;
     }
     
     const pairs = dayData.pairs;
-    document.getElementById('pair-count').textContent = pairs.length;
+    const pairCountElement = document.getElementById('pair-count');
+    if (pairCountElement) pairCountElement.textContent = pairs.length;
     
     pairs.forEach(pair => {
         const lessonDiv = document.createElement('div');
@@ -182,17 +240,20 @@ function displaySchedule() {
 // Отображение оценок
 function displayGrades() {
     const container = document.getElementById('grades-container');
-    container.innerHTML = '<h2>' + (translations.grades?.title || 'Оценки') + '</h2>';
-    container.innerHTML += '<p>Раздел оценок в разработке</p>';
+    if (!container) return;
+    const title = translations.grades?.title || 'Оценки';
+    container.innerHTML = '<p>Раздел оценок в разработке</p>';
 }
 
 // Отображение преподавателей
 function displayTeachers() {
     const container = document.getElementById('teachers-container');
-    container.innerHTML = '<h2>' + (translations.teachers?.title || 'Преподаватели') + '</h2>';
+    if (!container) return;
+    
+    container.innerHTML = '';
     
     if (teachersData.length === 0) {
-        container.innerHTML += '<p>Нет данных о преподавателях</p>';
+        container.innerHTML = '<p>Нет данных о преподавателях</p>';
         return;
     }
     
