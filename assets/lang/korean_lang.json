@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": "🎓 전자 다이어리",
+    "groupLabel": "그룹:",
+    "groupDefault": "-"
+  },
+  "nav": {
+    "schedule": "📅 일정",
+    "grades": "📊 성적",
+    "teachers": "👨‍🏫 교사"
+  },
+  "schedule": {
+    "weekOdd": "홀수 주",
+    "weekEven": "짝수 주",
+    "pairsCount": "수업:",
+    "days": {
+      "monday": "월요일",
+      "tuesday": "화요일",
+      "wednesday": "수요일",
+      "thursday": "목요일",
+      "friday": "금요일",
+      "saturday": "토요일"
+    }
+  },
+  "grades": {
+    "title": "학업 성과",
+    "semester1": "1학기",
+    "semester2": "2학기"
+  },
+  "teachers": {
+    "title": "교사"
+  },
+  "footer": {
+    "copyright": "© 2026 Portal v2 | 업데이트:"
+  }
+}
