@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Электронный дневник - Portal v2</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1>🎓 Электронный дневник</h1>
+                <div class="header-info">
+                    <span id="group-name">Группа: -</span>
+                    <span id="current-date"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <button class="nav-btn active" data-section="schedule">
+                📅 Расписание
+            </button>
+            <button class="nav-btn" data-section="grades">
+                📊 Оценки
+            </button>
+            <button class="nav-btn" data-section="teachers">
+                👨‍🏫 Преподаватели
+            </button>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="schedule-section" class="section active">
+            <div class="schedule-controls">
+                <div class="week-toggle">
+                    <button id="odd-week-btn" class="week-btn active">Нечетная</button>
+                    <button id="even-week-btn" class="week-btn">Четная</button>
+                </div>
+                <div class="week-status" id="week-status"></div>
+            </div>
+
+            <div class="day-navigation">
+                <button id="prev-day" class="arrow-btn">←</button>
+                <div class="day-buttons" id="day-buttons"></div>
+                <button id="next-day" class="arrow-btn">→</button>
+            </div>
+
+            <div class="schedule-content">
+                <h2 id="current-day-name">Понедельник</h2>
+                <p class="pairs-count">Пар: <span id="pair-count">0</span></p>
+                <div id="lessons-container"></div>
+            </div>
+        </section>
+
+        <section id="grades-section" class="section">
+            <h2>Успеваемость</h2>
+            <div class="semester-toggle">
+                <button id="semester-1-btn" class="semester-btn active">1 семестр</button>
+                <button id="semester-2-btn" class="semester-btn">2 семестр</button>
+            </div>
+            <div id="grades-container"></div>
+        </section>
+
+        <section id="teachers-section" class="section">
+            <h2>Преподаватели</h2>
+            <div id="teachers-container"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Portal v2 | Обновлено: <span id="update-time"></span></p>
+        </div>
+    </footer>
+
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
