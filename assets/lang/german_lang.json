@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": "🎓 Elektronisches Tagebuch",
+    "groupLabel": "Gruppe:",
+    "groupDefault": "-"
+  },
+  "nav": {
+    "schedule": "📅 Stundenplan",
+    "grades": "📊 Noten",
+    "teachers": "👨‍🏫 Lehrer"
+  },
+  "schedule": {
+    "weekOdd": "Ungerade Woche",
+    "weekEven": "Gerade Woche",
+    "pairsCount": "Unterricht:",
+    "days": {
+      "monday": "Montag",
+      "tuesday": "Dienstag",
+      "wednesday": "Mittwoch",
+      "thursday": "Donnerstag",
+      "friday": "Freitag",
+      "saturday": "Samstag"
+    }
+  },
+  "grades": {
+    "title": "Leistungen",
+    "semester1": "1. Semester",
+    "semester2": "2. Semester"
+  },
+  "teachers": {
+    "title": "Lehrer"
+  },
+  "footer": {
+    "copyright": "© 2026 Portal v2 | Aktualisiert:"
+  }
+}
