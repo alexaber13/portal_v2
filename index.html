@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Электронный дневник - Portal v2</title>
+    <title id="page-title">Portal v2</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <header class="header">
         <div class="container">
             <div class="header-content">
-                <h1>🎓 Электронный дневник</h1>
+                <h1 id="header-title"></h1>
                 <div class="header-info">
-                    <span id="group-name">Группа: -</span>
+                    <span id="group-name"></span>
                     <span id="current-date"></span>
                 </div>
             </div>
@@ -22,13 +22,13 @@
     <nav class="main-nav">
         <div class="container">
             <button class="nav-btn active" data-section="schedule">
-                📅 Расписание
+                <span id="nav-schedule"></span>
             </button>
             <button class="nav-btn" data-section="grades">
-                📊 Оценки
+                <span id="nav-grades"></span>
             </button>
             <button class="nav-btn" data-section="teachers">
-                👨‍🏫 Преподаватели
+                <span id="nav-teachers"></span>
             </button>
         </div>
     </nav>
@@ -37,8 +37,8 @@
         <section id="schedule-section" class="section active">
             <div class="schedule-controls">
                 <div class="week-toggle">
-                    <button id="odd-week-btn" class="week-btn active">Нечетная</button>
-                    <button id="even-week-btn" class="week-btn">Четная</button>
+                    <button id="odd-week-btn" class="week-btn active"></button>
+                    <button id="even-week-btn" class="week-btn"></button>
                 </div>
                 <div class="week-status" id="week-status"></div>
             </div>
@@ -50,30 +50,30 @@
             </div>
 
             <div class="schedule-content">
-                <h2 id="current-day-name">Понедельник</h2>
-                <p class="pairs-count">Пар: <span id="pair-count">0</span></p>
+                <h2 id="current-day-name"></h2>
+                <p class="pairs-count"><span id="pairs-label"></span> <span id="pair-count">0</span></p>
                 <div id="lessons-container"></div>
             </div>
         </section>
 
         <section id="grades-section" class="section">
-            <h2>Успеваемость</h2>
+            <h2 id="grades-title"></h2>
             <div class="semester-toggle">
-                <button id="semester-1-btn" class="semester-btn active">1 семестр</button>
-                <button id="semester-2-btn" class="semester-btn">2 семестр</button>
+                <button id="semester-1-btn" class="semester-btn active"></button>
+                <button id="semester-2-btn" class="semester-btn"></button>
             </div>
             <div id="grades-container"></div>
         </section>
 
         <section id="teachers-section" class="section">
-            <h2>Преподаватели</h2>
+            <h2 id="teachers-title"></h2>
             <div id="teachers-container"></div>
         </section>
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Portal v2 | Обновлено: <span id="update-time"></span></p>
+            <p><span id="footer-copyright"></span> <span id="update-time"></span></p>
         </div>
     </footer>
 
