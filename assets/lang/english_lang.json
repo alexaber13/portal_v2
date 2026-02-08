@@ -1,0 +1,36 @@
+{
+  "header": {
+    "title": "🎓 Electronic Diary",
+    "groupLabel": "Group:",
+    "groupDefault": "-"
+  },
+  "nav": {
+    "schedule": "📅 Schedule",
+    "grades": "📊 Grades",
+    "teachers": "👨‍🏫 Teachers"
+  },
+  "schedule": {
+    "weekOdd": "Odd Week",
+    "weekEven": "Even Week",
+    "pairsCount": "Classes:",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday"
+    }
+  },
+  "grades": {
+    "title": "Academic Performance",
+    "semester1": "Semester 1",
+    "semester2": "Semester 2"
+  },
+  "teachers": {
+    "title": "Teachers"
+  },
+  "footer": {
+    "copyright": "© 2026 Portal v2 | Updated:"
+  }
+}
