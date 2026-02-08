@@ -1,0 +1,71 @@
+{
+  "schedule": {
+    "groupName": "МД-25",
+    "weekOdd": "Нечетная",
+    "weekEven": "Четная",
+    "pairsCount": "Пар:",
+    "days": {
+      "monday": {
+        "pairs": [
+          {
+            "time": "09:00-10:30",
+            "subject": "Математика",
+            "teacher": "Иванов И.И.",
+            "room": "Ауд. 101"
+          },
+          {
+            "time": "10:45-12:15",
+            "subject": "Физика",
+            "teacher": "Петрова М.С.",
+            "room": "Ауд. 205"
+          }
+        ]
+      },
+      "tuesday": {
+        "pairs": [
+          {
+            "time": "09:00-10:30",
+            "subject": "Информатика",
+            "teacher": "Сидоров П.А.",
+            "room": "Комп. класс"
+          }
+        ]
+      },
+      "wednesday": {
+        "pairs": []
+      },
+      "thursday": {
+        "pairs": [
+          {
+            "time": "09:00-10:30",
+            "subject": "Математика",
+            "teacher": "Иванов И.И.",
+            "room": "Ауд. 101"
+          }
+        ]
+      },
+      "friday": {
+        "pairs": [
+          {
+            "time": "09:00-10:30",
+            "subject": "Физика",
+            "teacher": "Петрова М.С.",
+            "room": "Ауд. 205"
+          },
+          {
+            "time": "10:45-12:15",
+            "subject": "Информатика",
+            "teacher": "Сидоров П.А.",
+            "room": "Комп. класс"
+          }
+        ]
+      },
+      "saturday": {
+        "pairs": []
+      },
+      "sunday": {
+        "pairs": []
+      }
+    }
+  }
+}
