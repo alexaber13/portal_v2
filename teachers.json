@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Иванов Иван Иванович",
+    "subject": "Математика",
+    "contact": "ivanov@example.com"
+  },
+  {
+    "name": "Петрова Мария Сергеевна",
+    "subject": "Физика",
+    "contact": "petrova@example.com"
+  },
+  {
+    "name": "Сидоров Петр Александрович",
+    "subject": "Информатика",
+    "contact": "sidorov@example.com"
+  }
+]
